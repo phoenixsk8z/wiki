@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import SearchForm
 
 from . import util
 
@@ -14,9 +15,31 @@ def index(request):
 def search(request, entry):
     value = util.get_entry(entry)
     if value is None:
-        return render(request, None)
+        matches = util.match_title(entry)
+        if not matches:
+            return render(request, "encyclopedia/404.html", {
+            "entry": entry,   
+            })
+        return render(request, "encyclopedia/matches.html", {
+            "entries": matches,
+            "requestedpage": entry,
+        })
     html = md.markdown(value, extensions=['markdown.extensions.fenced_code'])
     return render(request, "encyclopedia/markdown.html", {
         "entry": entry,
-        "body": html
+        "body": html,
     })
+
+def query(request):
+    if request.method == "POST":
+        return search(request, request.POST['q'])
+
+def createpage(request):
+    if request.method == "GET":
+        return render(request, "encyclopedia/createpage.html")
+    elif request.method == "POST":
+        title = request.POST['title']
+        if util.check_title(title):
+            util.save_entry(title, request.POST['body'])
+            return search(request, title)
+        return render(request, "encyclopedia/404.html")

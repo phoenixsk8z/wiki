@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>New Page</title>
+    </head>
+    <body>
+        <form action="{% url 'createpage' %}" method="post">
+            {% csrf_token %}
+            <label for="title">New Page Title:</label>
+            <input type="text", name="title">
+            <br/>
+        <h1>New Page Body:</h1>
+            <textarea rows="25" cols="80" name="body"></textarea>
+            <input type="submit">
+        </form>
+    </body>
+</html>

@@ -35,3 +35,18 @@ def get_entry(title):
         return f.read().decode("utf-8")
     except FileNotFoundError:
         return None
+
+def match_title(title):
+    """
+    Retrieve a list of the entries that match the substring
+    of the title.
+    """ 
+    entries = list_entries()
+    return [entry for entry in entries if (entry.lower().find(title.lower()) != -1)]
+        
+def check_title(title):
+    """
+    Check the new page title to see if a page with that title
+    already exists.
+    """
+    return not [entry for entry in list_entries() if title == entry]
