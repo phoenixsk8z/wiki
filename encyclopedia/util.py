@@ -49,4 +49,4 @@ def check_title(title):
     Check the new page title to see if a page with that title
     already exists.
     """
-    return not [entry for entry in list_entries() if title == entry]
+    return not [entry for entry in list_entries() if title.lower() == entry.lower()]

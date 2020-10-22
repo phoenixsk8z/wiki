@@ -6,3 +6,4 @@ urlpatterns = [
     path("", views.index2, name="index"),
     path("<str:name>", views.greet, name="greet"),
 ]
+

@@ -42,4 +42,19 @@ def createpage(request):
         if util.check_title(title):
             util.save_entry(title, request.POST['body'])
             return search(request, title)
-        return render(request, "encyclopedia/404.html")
+        match = util.match_title(title).pop(0)
+        return render(request, "encyclopedia/titleerror.html", {
+            "title": match
+        })
+
+def editpage(request):
+    if request.method == "GET":
+        title = request.GET['q']
+        body = util.get_entry(title)
+        return render(request, "encyclopedia/editpage.html", {
+        "body": body
+        })
+    elif request.method == "POST":
+        title = request.POST['title']
+        util.save_entry(title, request.POST['body'])
+        return search(request, title)

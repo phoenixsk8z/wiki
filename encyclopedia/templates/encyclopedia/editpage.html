@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit {{ title }}</title>
+</head>
+<body>
+    <form action="{% url 'editpage' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="title" id="title">
+        <h1>Edit {{ title }} Body:</h1>
+        <textarea name="body" id="body" cols="80" rows="25">{{ body }}</textarea>
+        <input type="submit">
+    </form>
+</body>
+</html>
