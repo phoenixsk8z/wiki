@@ -1,3 +1,14 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+}
+
 body {
     margin: 0;
     background-color: white;
@@ -10,6 +21,15 @@ code {
 h1 {
     margin-top: 0px;
     padding-top: 20px;
+    font-size: 2.2rem;
+    color: #696969;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.7rem;
+    margin-bottom: 6px;
+    color: #4a4a4a;
 }
 
 textarea {
@@ -17,22 +37,103 @@ textarea {
     width: 80%;
 }
 
-.main {
-    padding: 10px;
-}
-
 .search {
     width: 100%;
     font-size: 15px;
-    line-height: 15px;
+    line-height: 18px;
+    border-radius: 6px;
+    border: solid 1px #2e2e2e;
+    padding-left: 8px;
+    margin-bottom: 8px;
 }
 
-.sidebar {
+header {
     background-color: #f0f0f0;
     height: 100vh;
-    padding: 20px;
+    padding: 15px;
 }
 
-.sidebar h2 {
+header h2 {
+    margin-top: 5;
+}
+
+ul {
+    list-style: none;
+}
+
+li > a { 
+    margin: 10px;
+    text-decoration: none;
+    color: #519cbd
+}
+
+li > a:hover {
+    color: #166487;
+    text-decoration: underline;
+}
+
+li > a {
+    color: #4f4f4f;
+}
+
+header > div {
+    margin-bottom: 4px;
+}
+
+div > a:hover {
+    color: #171717;
+}
+
+main {
+    margin-left: 15px;
+}
+
+main > ul > li {
     margin-top: 5px;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 800px) {
+.container {
+    display: grid;
+    grid-template-rows: 80px auto;
+    grid-template-columns: 1fr;
+}
+header > ul {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: 30px;
+    justify-content: center;
+    column-gap: 50px;
+}
+.search {
+    width: 100%;
+    justify-self: end;
+}
+
+header {
+    display: grid;
+    grid-template-rows: 50px 30px;
+}
+header > h2 {
+    justify-self: left;
+    grid-row: 1/2;
+    font-size: 1rem;
+}
+header > form {
+    grid-row: 1/2;
+    justify-self: end;
+    width: 50%
+}
+
+.header_and_search {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: baseline;
+}
+main {
+    margin-top: 10px;
+    display: grid;
+    grid-row: 2/3;
+}
 }
