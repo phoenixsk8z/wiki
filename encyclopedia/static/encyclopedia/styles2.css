@@ -1,0 +1,8 @@
+body {
+    margin: 15px;
+    background-color: #404d85;
+}
+
+form > h1 {
+    color: white;
+}

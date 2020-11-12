@@ -1,12 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>New Page</title>
+        <link rel="stylesheet" href="{% static 'encyclopedia/styles2.css' %}">
     </head>
     <body>
         <form action="{% url 'createpage' %}" method="post">
             {% csrf_token %}
-            <label for="title">New Page Title:</label>
+        <h1>New Page Title:</h1>
             <input type="text", name="title">
             <br/>
         <h1>New Page Body:</h1>
