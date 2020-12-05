@@ -8,12 +8,15 @@
     <body>
         <form action="{% url 'createpage' %}" method="post">
             {% csrf_token %}
-        <h1>New Page Title:</h1>
-            <input type="text", name="title">
-            <br/>
-        <h1>New Page Body:</h1>
-            <textarea rows="25" cols="80" name="body"></textarea>
-            <input type="submit">
+            <div id="pagetitle">
+                <h1>New Page Title:</h1>
+                <input type="text", name="title" maxlength="20" required>
+            </div>            
+            <div id="pagebody">
+                <h1>New Page Body:</h1>
+                <textarea rows="20" cols="80" name="body" required></textarea>
+                <input type="submit" id="submit_button">
+            </div>
         </form>
     </body>
 </html>

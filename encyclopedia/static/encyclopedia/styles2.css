@@ -3,6 +3,51 @@ body {
     background-color: #404d85;
 }
 
-form > h1 {
+#pagetitle {
+    position: relative;
+}
+
+#pagetitle > input {
+    position: absolute;
+    top: 1px;
+    left: 220px;
+    width: 220px;
+    height: 26px;
+}
+
+#pagebody {
+    position: relative;
+}
+
+#submit_button {
+    position: absolute;
+    bottom: -55px;
+    left: 1px;
+    padding: 10px 20px;
+}
+ 
+h1 {
     color: white;
+}
+
+textarea, input {
+    border-radius: 15px;
+    border-color: black;
+    border-width: 2px;
+    padding: 4px;
+    font-size: 20px;
+}
+
+textarea {
+    width: 99%;
+    padding-top: 10px;
+}
+
+textarea:focus, input:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px black;
+}
+
+textarea::placeholder {
+    color: green;
 }

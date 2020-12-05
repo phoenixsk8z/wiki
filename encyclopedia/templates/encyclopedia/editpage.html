@@ -10,10 +10,12 @@
 <body>
     <form action="{% url 'editpage' %}" method="post">
         {% csrf_token %}
-        <input type="hidden" name="title" id="title">
-        <h1>Edit {{ title }} Body:</h1>
-        <textarea name="body" id="body" cols="80" rows="25">{{ body }}</textarea>
-        <input type="submit">
+        <input type="hidden" name="title" id="title" value="{{ title }}">
+        <div id="pagebody">
+            <h1>Edit {{ title }} Body:</h1>
+            <textarea name="body" id="body" cols="80" rows="25">{{ body }}</textarea>
+            <input type="submit">
+        </div>
     </form>
 </body>
 </html>

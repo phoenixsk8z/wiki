@@ -3,6 +3,12 @@
     Query
 {% endblock %}
 {% block body %}
+<style>
+main > ul {
+    display: grid;
+    grid-template-columns: 1fr !important;
+}   
+</style>
 <h1>Couldn't find {{ requestedpage }}. </h1>
 <h2>Found other possible matches.</h2>
 
